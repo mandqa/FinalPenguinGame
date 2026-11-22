@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1800d3da-75fa-42aa-a9dc-010d35bbf4e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Assets/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Controls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Materials/watermat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Materials/watermat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Materials/watermat.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Materials/watermat.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Objects/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Objects/New Terrain.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Scripts/Dialogue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Scripts/Dialogue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Scripts/playermovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Scripts/playermovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Settings/DefaultVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Settings/DefaultVolumeProfile.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mandqa"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mandqa/FinalPenguinGame.git",
+    "accountId": "0b1d5fd1-30c9-4fdf-be5b-334fffea8794"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogue.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/playermovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@7865b6b91f8a/Shaders/Terrain/TerrainLit.shader" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0794241852834419" />
+      <entry key="MS500" value="3.218978640419574" />
+      <entry key="S2" value="8.859280028661695" />
+      <entry key="S5" value="15.639389232815345" />
+      <entry key="S10" value="21.79102105345689" />
+      <entry key="S30" value="33.11919013372761" />
+      <entry key="S60" value="44.766628548337145" />
+      <entry key="M2" value="57.554743003074975" />
+      <entry key="M5" value="76.1724976117599" />
+      <entry key="M10" value="120.67574548762154" />
+      <entry key="M15" value="174.12329356466222" />
+      <entry key="M30" value="299.57331837130306" />
+      <entry key="H1" value="422.55140515381606" />
+      <entry key="H2" value="511.1822046781963" />
+      <entry key="H4" value="564.8266842731091" />
+      <entry key="D1" value="615.2332651700101" />
+      <entry key="W1" value="624.4472253334626" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.5271213184319264E-239" />
+      <entry key="MS500" value="1.7249428387709816E-48" />
+      <entry key="S2" value="1.1464389742777646E-12" />
+      <entry key="S5" value="1.7440468185053774E-5" />
+      <entry key="S10" value="0.004929820631876817" />
+      <entry key="S30" value="0.25424243878132907" />
+      <entry key="S60" value="0.7070135249004039" />
+      <entry key="M2" value="1.1866264083208142" />
+      <entry key="M5" value="1.7050084031588573" />
+      <entry key="M10" value="2.7886871766231502" />
+      <entry key="M15" value="4.3205563337961035" />
+      <entry key="M30" value="8.571521556971275" />
+      <entry key="H1" value="13.32496169419919" />
+      <entry key="H2" value="17.000911558772096" />
+      <entry key="H4" value="19.3066672141786" />
+      <entry key="D1" value="21.52136416260326" />
+      <entry key="W1" value="21.930854770578545" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.0322318737921956" />
+      <entry key="MS500" value="3.0906132920752567" />
+      <entry key="S2" value="8.641640042460887" />
+      <entry key="S5" value="15.45895316200419" />
+      <entry key="S10" value="21.654962648212955" />
+      <entry key="S30" value="33.27847292681159" />
+      <entry key="S60" value="45.390864977949754" />
+      <entry key="M2" value="58.6792016927152" />
+      <entry key="M5" value="77.8417276014567" />
+      <entry key="M10" value="123.43558814712773" />
+      <entry key="M15" value="178.4156042291595" />
+      <entry key="M30" value="308.11932750859165" />
+      <entry key="H1" value="435.85760805683907" />
+      <entry key="H2" value="528.1714779544717" />
+      <entry key="H4" value="584.1268327889934" />
+      <entry key="D1" value="636.7534317208687" />
+      <entry key="W1" value="646.377906091446" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3MR0Z8cw1dWusRo7slX7AdsRjhy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "Amanda",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1800d3da-75fa-42aa-a9dc-010d35bbf4e7" name="Changes" comment="" />
+      <created>1795298126615</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1795298126615</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

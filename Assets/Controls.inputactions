@@ -785,6 +785,56 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "CameraOrbit",
+            "id": "fc39eb7e-21ad-4dde-866d-2621d7286312",
+            "actions": [
+                {
+                    "name": "MouseX",
+                    "type": "Value",
+                    "id": "f39171c5-cb22-442d-9d84-d36902ba3b42",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "MouseY",
+                    "type": "Value",
+                    "id": "d532014a-c0b5-4245-8da6-50c8d4b0611d",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a119fa34-3b36-4500-b0f9-404d23197a2e",
+                    "path": "<Mouse>/delta/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf3200ec-d12b-46a5-ae10-a54d9ba3e928",
+                    "path": "<Mouse>/delta/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -13,9 +13,16 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float sprintSpeed = 8f;
+
+    [SerializeField] private Transform cam;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        //if no cam assigned, use main
+        if (cam == null)
+        {
+            cam = Camera.main.transform;
+        }
     }
 
     void Update()
@@ -44,17 +51,31 @@ public class PlayerMovement : MonoBehaviour
         //choose between walk and sprint
         float currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
 
+        //camera directions 
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+        
+        //camera directions
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        camForward.Normalize();
+        camRight.Normalize();
         Debug.Log("horizontal" + x + "vertical" + z);
-        Vector3 moveDir = new Vector3(x, 0, z);
+        Vector3 moveDir = (camForward * z) + (camRight * x); 
+        moveDir = Vector3.ClampMagnitude(moveDir, 1f);
         //applied movement
         rb.linearVelocity = new Vector3(moveDir.x * currentSpeed, rb.linearVelocity.y, moveDir.z * currentSpeed);
 
+        //flip sprite based on camera relative left/right movement
+        float horizontalDirection = Vector3.Dot(moveDir, camRight);
+        
         //flip sprite depending on direction
-        if (x != 0 && x < 0)
+        if (horizontalDirection < -0.01f)
         {
             sr.flipX = true;
         }
-        else if (x != 0 && x > 0)
+        else if (horizontalDirection > 0.01f)
         {
             sr.flipX = false;
         }
