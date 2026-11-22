@@ -12,6 +12,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float TypeSpeed = 0.0f;
 
     [SerializeField] private PlayerMovement playerMovement;
+
+    [SerializeField] private Timer timer;
     
     private int lineIndex = 0;
 
@@ -73,6 +75,8 @@ public class Dialogue : MonoBehaviour
             isInteracting = false;
             playerMovement.UnfreezePlayer();
             canInteract = true;
+
+            timer.StartTimer();
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -90,6 +94,8 @@ public class Dialogue : MonoBehaviour
             canInteract = false;
             }
     }
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
