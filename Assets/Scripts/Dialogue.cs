@@ -11,6 +11,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string[] DialogueLines;
     [SerializeField] private float TypeSpeed = 0.0f;
 
+    [SerializeField] GameObject FoodStatusStuff;
+
     [SerializeField] private PlayerMovement playerMovement;
 
     [SerializeField] private Timer timer;
@@ -42,6 +44,7 @@ public class Dialogue : MonoBehaviour
         DialogueText.text = "";
         NextLinePrompt.SetActive(false);
         DialogueBox.SetActive(true);
+        FoodStatusStuff.SetActive(false);
         
         lineIndex = 0;
         StartCoroutine(WriteLine());
@@ -77,6 +80,8 @@ public class Dialogue : MonoBehaviour
             canInteract = true;
 
             timer.StartTimer();
+            FoodStatusStuff.SetActive(true);
+            
         }
     }
     private void OnTriggerEnter(Collider collision)
