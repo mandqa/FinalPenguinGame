@@ -6,7 +6,9 @@ public class MGTriggers : MonoBehaviour
 {
     [SerializeField] GameObject EInteractPrompt;
     public TMP_Text EInteractText;
-    [SerializeField] string thisMG;
+    [SerializeField] public string thisMG;
+    [SerializeField] GameObject fishingMiniGame;
+    [SerializeField] PlayerMovement playerMovement;
     
     private bool canInteract;
     
@@ -19,19 +21,33 @@ public class MGTriggers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EInteractPrompt.SetActive(canInteract);
-
-        if (canInteract && Input.GetKeyDown(KeyCode.E)) StartMiniGame();
+        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        {
+            playerMovement.FreezePlayer();
+            StartMiniGame();
+        }
     }
 
     void StartMiniGame()
     {
-        Debug.Log(thisMG); 
+        if (thisMG == "Fish")
+        {
+            fishingMiniGame.SetActive(true);
+        }
+        else if (thisMG == "Shave Ice")
+        {
+            EInteractText.text = "Press [E] to "+thisMG;
+        }
+        else if (thisMG == "Shake Bush")
+        {
+            EInteractText.text = "Press [E] to "+thisMG;
+        }
         
     }
     
     private void OnTriggerEnter(Collider collision)
     {
+        EInteractPrompt.SetActive(canInteract);
         if (collision.CompareTag("Player"))
         {
             canInteract = true;
@@ -55,6 +71,8 @@ public class MGTriggers : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             canInteract = false;
+            playerMovement.UnfreezePlayer();
         }
+        EInteractPrompt.SetActive(canInteract);
     }
 }
