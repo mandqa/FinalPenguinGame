@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         camForward.Normalize();
         camRight.Normalize();
-        Debug.Log("horizontal" + x + "vertical" + z);
+        //Debug.Log("horizontal" + x + "vertical" + z);
         Vector3 moveDir = (camForward * z) + (camRight * x); 
         moveDir = Vector3.ClampMagnitude(moveDir, 1f);
         //applied movement
