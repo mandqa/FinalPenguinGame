@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class FishingMiniGame : MonoBehaviour
 {
+    [SerializeField] GameObject FishingUI;
+    
+    [SerializeField] FishingRodManager rod;
+    
     [SerializeField] Transform topPivot;
     [SerializeField] Transform bottomPivot;
 
@@ -38,22 +42,60 @@ public class FishingMiniGame : MonoBehaviour
 
     [SerializeField] Image fishImage;
     
-    public bool paused = false;
+    public bool endFishing = false;
+    
+    [SerializeField] StatusBarManager  statusBarManager;
 
-    private void Start()
+    /*private void Start()
     {
-        paused = false;
         Resize();
+        
+        StartFishing();
+    }*/
+
+    public void StartFishing()
+    {
+        endFishing = false;
         fishImage.enabled = false;
+
+        hookProgress = 0.2f;
+        hookPosition = 0.5f;
+        hookPullVelocity = 0f;
+
+        fishPosition = Random.Range(0.2f, 0.8f);
+        fishDestination = Random.Range(0f, 1f);
+        fishTimer = 0f;
+        fishSpeed = 0f;
+
+        if (FishingUI != null)
+        {
+            FishingUI.SetActive(true);
+        }
+
+        Resize();
+        
+    }
+
+    public void FinishFishing(bool caughtFish)
+    {
+        endFishing = true;
+        if (caughtFish)
+        {
+            fishImage.enabled = true;
+        }
+        
+        Invoke(nameof(CloseMiniGame), 1.5f);
+    }
+
+    private void CloseMiniGame()
+    {
+        FishingUI.SetActive(false);
     }
 
     private void Update()
     {
-        if (paused)
-        {
-            fishImage.enabled = true;
-            return;
-        }
+        if (endFishing) return;
+        
         Fish();
         Hook();
         ProgressCheck();
@@ -150,7 +192,11 @@ public class FishingMiniGame : MonoBehaviour
 
     private void Win()
     {
-        Debug.Log("you caught it");
-        paused = true;
+        //Debug.Log("you caught it");
+        endFishing = true;
+        statusBarManager.HealFishy(50);
+        
+        FishingUI.SetActive(false);
+        
     }
 }

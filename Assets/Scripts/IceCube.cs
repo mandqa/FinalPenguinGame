@@ -4,24 +4,29 @@ using UnityEngine.EventSystems;
 
 public class IceCube : MonoBehaviour, IPointerDownHandler
 {
+    [SerializeField] private GameObject iceMiniGameUI;
+    [SerializeField] private bool regrowAfterBreak = false;
+    public bool endIce;
 
     [SerializeField] private IceParticle particlePrefab;
     [SerializeField] private RectTransform particleParent;
-    
+
     [SerializeField] private int minParticles = 3;
     [SerializeField] private int maxParticles = 5;
 
     [SerializeField] private Vector2 xSpeedRange = new Vector2(-150f, 150f);
     [SerializeField] private Vector2 ySpeedRange = new Vector2(-150f, -30f);
-    
-    [SerializeField] private float maxSpin = 360f;
+
     [SerializeField] private float spawnJitter = 20f;
-    
+
     [SerializeField] private int clicksToBreak = 10;
-    [SerializeField] private float shrinkDuration = 0.15f;  
-    [SerializeField] private float regrowDuration = 3f;    
+    [SerializeField] private float shrinkDuration = 0.15f;
+    [SerializeField] private float regrowDuration = 3f;
+
+    [SerializeField, Range(0f, 0.5f)] private float regrowStartScale = 0.1f;
     
-    [SerializeField, Range(0f, 0.5f)] private float regrowStartScale = 0.1f; 
+    [SerializeField] private BowlMover DaBowl;
+    [SerializeField] private float endDelay = 1.5f;
 
     private Vector3 baseScale;
     private int clicks;
@@ -33,9 +38,29 @@ public class IceCube : MonoBehaviour, IPointerDownHandler
         baseScale = transform.localScale;
     }
 
+    public void StartIce()
+    {
+        DaBowl.MoveToGame();
+        iceMiniGameUI.SetActive(true);
+
+        if (scaleRoutine != null)
+        {
+            StopCoroutine(scaleRoutine);
+            scaleRoutine = null;
+        }
+
+        transform.localScale = baseScale;
+        clicks = 0;
+        canClick = true;
+        endIce = false;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!canClick) return;
+        if (!canClick)
+        {
+            return;
+        }
 
         SpawnParticles(eventData);
 
@@ -44,7 +69,15 @@ public class IceCube : MonoBehaviour, IPointerDownHandler
         if (clicks >= clicksToBreak)
         {
             canClick = false;
-            StartScale(BreakAndRegrow());
+
+            if (regrowAfterBreak)
+            {
+                StartScale(BreakAndRegrow());
+            }
+            else
+            {
+                StartScale(BreakAndEnd());
+            }
         }
         else
         {
@@ -67,19 +100,22 @@ public class IceCube : MonoBehaviour, IPointerDownHandler
         for (int i = 0; i < count; i++)
         {
             IceParticle p = Instantiate(particlePrefab, particleParent);
-            
+            p.killY = killY;
+
             Vector2 jitter = Random.insideUnitCircle * spawnJitter;
             p.GetComponent<RectTransform>().anchoredPosition = localPoint + jitter;
 
             Vector2 vel = new Vector2(Random.Range(xSpeedRange.x, xSpeedRange.y), Random.Range(ySpeedRange.x, ySpeedRange.y)) * scale;
-
-            p.Launch(vel, Random.Range(-maxSpin, maxSpin), killY);
         }
     }
 
     private void StartScale(IEnumerator routine)
     {
-        if (scaleRoutine != null) StopCoroutine(scaleRoutine);
+        if (scaleRoutine != null)
+        {
+            StopCoroutine(scaleRoutine);
+        }
+
         scaleRoutine = StartCoroutine(routine);
     }
 
@@ -93,13 +129,25 @@ public class IceCube : MonoBehaviour, IPointerDownHandler
             transform.localScale = Vector3.Lerp(from, to, t / duration);
             yield return null;
         }
+
         transform.localScale = to;
+    }
+
+    private IEnumerator BreakAndEnd()
+    {
+        yield return ScaleTo(0f, shrinkDuration);
+        yield return new WaitForSeconds(endDelay);
+
+        scaleRoutine = null;
+        endIce = true;
+        DaBowl.MoveToStatus();
+        iceMiniGameUI.SetActive(false);
     }
 
     private IEnumerator BreakAndRegrow()
     {
         yield return ScaleTo(0f, shrinkDuration);
-        
+
         Vector3 from = baseScale * regrowStartScale;
         Vector3 to = baseScale;
 

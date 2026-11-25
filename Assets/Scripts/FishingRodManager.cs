@@ -31,7 +31,7 @@ public class FishingRodManager : MonoBehaviour
 
     void Update()
     {
-        if (fmg.paused) return;
+        if (fmg.endFishing) return;
 
         fightFish();
     }

@@ -4,13 +4,18 @@ using Unity.Cinemachine;
 public class MGCameraViews : MonoBehaviour
 {
     public CinemachineCamera playerCam;
-    public CinemachineCamera[] minigameCams; // 0: Fish, 1: Bush, 2: Ice
+    public CinemachineCamera[] minigameCams;
 
     public MGTriggers fishTrigger;
     public MGTriggers bushTrigger;
     public MGTriggers iceTrigger;
 
+    [SerializeField] FishingMiniGame fmg;
+    [SerializeField] IceCube iceGame;
+    [SerializeField] PlayerMovement pm;
+
     private bool isInMinigameView = false;
+    private string activeMG = "";
 
     void Start()
     {
@@ -19,25 +24,52 @@ public class MGCameraViews : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!isInMinigameView && Input.GetKeyDown(KeyCode.E))
         {
-            if (isInMinigameView)
+            if (fishTrigger.canInteract)
             {
-                // Return to normal player view if pressed again
-                ResetToPlayerCamera();
-            }
-            else if (fishTrigger.thisMG == "Fish")
-            {
+                pm.FreezePlayer();
+                fmg.StartFishing();
+                activeMG = "Fish";
                 SwitchToMinigameCamera(0);
             }
-            // Add your other triggers here using the same pattern:
-            // else if (bushTrigger.thisMG == "Bush") SwitchToMinigameCamera(1);
+            else if (iceTrigger.canInteract)
+            {
+                pm.FreezePlayer();
+                iceGame.StartIce();
+                activeMG = "Ice";
+                SwitchToMinigameCamera(2);
+            }
         }
+
+        if (isInMinigameView)
+        {
+            if (activeMG == "Fish" && fmg.endFishing)
+            {
+                EndMinigame(fishTrigger);
+            }
+            else if (activeMG == "Ice" && iceGame.endIce)
+            {
+                EndMinigame(iceTrigger);
+            }
+        }
+    }
+
+    void EndMinigame(MGTriggers trigger)
+    {
+        ResetToPlayerCamera();
+        pm.UnfreezePlayer();
+        trigger.ShowPrompt();
+        activeMG = "";
     }
 
     void SwitchToMinigameCamera(int camIndex)
     {
-        minigameCams[camIndex].Priority = 20;
+        if (camIndex < minigameCams.Length)
+        {
+            minigameCams[camIndex].Priority = 20;
+        }
+
         isInMinigameView = true;
     }
 
@@ -47,6 +79,7 @@ public class MGCameraViews : MonoBehaviour
         {
             minigameCams[i].Priority = 5;
         }
+
         playerCam.Priority = 10;
         isInMinigameView = false;
     }

@@ -47,6 +47,15 @@ public class StatusBarManager : MonoBehaviour
         fishyBar.fillAmount = Mathf.Lerp(fishyBar.fillAmount, fishiness/maxFishy, lerpSpeed);
     }
 
+    void Update()
+    {
+        IceText.text = "Ice Content: " + Mathf.RoundToInt(ice) + "%";
+        SugarText.text = "Sugar Content: " + Mathf.RoundToInt(sugar) + "%";
+        fishyText.text = "Fishiness: " + Mathf.RoundToInt(fishiness)+"%";
+        BarFiller();
+        ColorChanger();
+    }
+
     void ColorChanger()
     {
         Color iceColor = Color.Lerp(Color.dodgerBlue, Color.softBlue, (ice/maxIce));
@@ -86,6 +95,6 @@ public class StatusBarManager : MonoBehaviour
 
     public void HealFishy(float healingPoints)
     {
-        if (fishiness > maxFishy) fishiness += healingPoints;
+        if (fishiness < maxFishy) fishiness += healingPoints;
     }
 }
