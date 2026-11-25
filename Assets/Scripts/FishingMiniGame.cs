@@ -44,6 +44,8 @@ public class FishingMiniGame : MonoBehaviour
     
     public bool endFishing = false;
     
+    [SerializeField] FishLerp fishPopup;
+    
     [SerializeField] StatusBarManager  statusBarManager;
 
     /*private void Start()
@@ -192,11 +194,10 @@ public class FishingMiniGame : MonoBehaviour
 
     private void Win()
     {
-        //Debug.Log("you caught it");
         endFishing = true;
-        statusBarManager.HealFishy(50);
-        
+        statusBarManager.HealFishy(30);
+        fishPopup.Show();
+
         FishingUI.SetActive(false);
-        
     }
 }
